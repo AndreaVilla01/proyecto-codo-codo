@@ -1,0 +1,127 @@
+body {
+    background-color: #444444;
+    color: rgba(235, 240, 234, 0.822);
+    text-align: center;
+    margin: 0; /* Para quitar el margen predeterminado del body */
+    padding: 0;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    padding: 10px;
+}
+
+#header h1 {
+    display: flex;
+    align-items: center;
+
+    font: oblique bold 120% normal;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 6px; /* Agrega margen a la letra */
+    margin: 0; /* Corrige el margen superior del h1 */
+}
+
+h2 {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin: 10 px 0; /* Elimina el margen superior del h1 */
+    letter-spacing: 1px; /* Agrega margen a la letra */
+}
+
+.left-align {
+    
+    text-align: left;
+}
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie {
+    border: 4px solid #333333;
+    padding: 10px;
+    margin: 15px;
+    text-align: center;
+}
+
+.movie img {
+    width: 100px;
+    height: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Agregar una transición para suavizar la animación */
+}
+
+.movie img:hover {
+    transform: scale(1.1); /* Aumentar el tamaño al pasar el mouse por encima */
+}
+
+nav ul {
+    list-style: none;
+    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    
+    margin-left: 10px;
+}
+
+/* Estilo inicial para los enlaces */
+nav ul li a {
+    color: #777; /* Color gris inicial */
+    text-decoration: none; /* Quitar subrayado predeterminado */
+    transition: color 0.3s; /* Transición para cambiar el color */
+}
+
+/* Estilo al pasar el mouse sobre los enlaces */
+nav ul li a:hover {
+    color: #fff; /* Cambio de color a blanco */
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .movie img {
+        width: 80px;
+        height: 120px;
+    }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .movie {
+        margin: 10px;
+    }
+}
+
+/* Estilos para escritorio */
+@media (min-width: 1025px) {
+    /* Se mantiene los estilos originales para escritorio */
+}
+

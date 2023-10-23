@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel API - Hulk</title>
+</head>
+<body>
+    <h1>Información sobre Hulk</h1>
+    <div id="hulk-info"></div>
+
+    <script>
+        const publicKey = '3852b76d6c470fff80d142706ae3915e'; // Reemplaza con tu clave pública de Marvel API
+        const privateKey = '1474ed2db4fd7ffddbf3050bdd66e2afe393ea8d'; // Reemplaza con tu clave privada de Marvel API
+        const timestamp = new Date().getTime();
+        const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString();
+        const apiUrl = 'https://gateway.marvel.com/v1/public/characters';
+
+        const characterName = 'Hulk';
+
+        const url = `${apiUrl}?name=${characterName}&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const hulkInfo = data.data.results[0];
+                const hulkDescription = hulkInfo.description || 'No hay descripción disponible.';
+                const hulkThumbnail = hulkInfo.thumbnail.path + '.' + hulkInfo.thumbnail.extension;
+                const hulkInfoDiv = document.getElementById('hulk-info');
+                hulkInfoDiv.innerHTML = `
+                    <h2>${hulkInfo.name}</h2>
+                    <img src="${hulkThumbnail}" alt="${hulkInfo.name}">
+                    <p>${hulkDescription}</p>
+                `;
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
